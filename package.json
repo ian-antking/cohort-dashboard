@@ -1,0 +1,19 @@
+{
+  "name": "cohort-dashboard",
+  "version": "1.0.0",
+  "description": "api for tracking github activity of coding bootcamp cohorts",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ian-antking/cohort-dashboard.git"
+  },
+  "author": "Ian King",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ian-antking/cohort-dashboard/issues"
+  },
+  "homepage": "https://github.com/ian-antking/cohort-dashboard#readme"
+}
