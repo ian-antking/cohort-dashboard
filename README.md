@@ -26,4 +26,5 @@ By default the app listens of port 4000. If this is not suitable, a specific por
     PORT = 8080
 ```
 
-The app will respond to `GET` requests to `/` with a JSON of the current cohorts of MCR-Codes.
+The app will respond to `GET` requests to `/users` with a JSON of the current cohorts of MCR-Codes.
+Requests to `/users/:name` will recieve github profile, repo and acticity data for the specified user.
