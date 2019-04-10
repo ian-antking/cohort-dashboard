@@ -1,3 +1,4 @@
+const profiles = require('./cohorts/feb19-profiles.json');
 const express = require('express');
 const feb19 = require('./cohorts/feb19');
 
@@ -10,7 +11,10 @@ app.get('/users', (_, res) => {
 });
 
 app.get('/users/:name', (req, res) => {
-  res.status(200).json({ name: req.params.name });
+  const profile = profiles.feb19.find(user => {
+    return user.login.toLowerCase() === req.params.name.toLowerCase();
+  });
+  res.status(200).json({ profile: profile });
 });
 
 module.exports = app;
