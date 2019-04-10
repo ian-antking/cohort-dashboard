@@ -16,9 +16,9 @@ app.get('/users', (_, res) => {
   res.status(200).json({ Feb19: feb19 });
 });
 
-app.get('/repos', (_, res) => {
+app.get('/activity', (_, res) => {
   const getAllFebStudentsProfiles = feb19.map(student => {
-    const url = `https://api.github.com/users/${student}/repos`;
+    const url = `https://api.github.com/users/${student}/events`;
     return Axios.get(
       url,
       {
