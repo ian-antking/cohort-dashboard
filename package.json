@@ -27,7 +27,9 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
-    "mongoose": "^5.4.20",
-    "express": "^4.16.4"
+    "async": "^2.6.2",
+    "axios": "^0.18.0",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.20"
   }
 }
