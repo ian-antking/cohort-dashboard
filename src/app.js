@@ -3,7 +3,7 @@ const repos = require('./cohorts/feb19-repos.json');
 const events = require('./cohorts/feb19-events.json');
 const express = require('express');
 const feb19 = require('./cohorts/feb19');
-const Axios = require('axios');
+
 
 const app = express();
 app.use(express.static('public'));
