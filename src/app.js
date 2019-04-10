@@ -5,7 +5,6 @@ const app = express();
 app.use(express.static('public'));
 app.use(express.json());
 
-
 app.get('/users', (_, res) => {
   res.status(200).json({ Feb19: feb19 });
 });
