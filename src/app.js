@@ -63,6 +63,7 @@ app.get('/users/:name', (req, res) => {
       type: event.type,
       repo: event.repo.name,
       messages: event.payload.commits ? event.payload.commits.map(commit => commit.message) : null,
+      time: event.created_at,
     };
   });
 
