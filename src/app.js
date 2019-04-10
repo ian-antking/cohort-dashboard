@@ -26,18 +26,51 @@ app.get('/users/:name', (req, res) => {
     return user.login.toLowerCase() === req.params.name.toLowerCase();
   });
 
+  const simpleProfile = {
+    login: profile.login,
+    avatar: profile.avatar_url || profile.gravatar_url,
+    url: profile.url,
+    repos: profile.public_repos,
+    followers: profile.follower,
+    following: profile.following,
+    location: profile.location,
+    company: profile.company,
+  };
+
   const userRepos = flatProfiles.filter(repo => {
     return repo.owner.login.toLowerCase() === req.params.name.toLowerCase();
+  });
+
+  const simpleRepos = userRepos.map(repo => {
+    return {
+      name: repo.name,
+      url: repo.html_url,
+      description: repo.description,
+      language: repo.language,
+      created: repo.created_at,
+      lastUpdate: repo.pushed_at,
+      forks: repo.forks,
+      watchers: repo.watchers,
+    };
   });
 
   const userEvents = flatEvents.filter(event => {
     return event.actor.login.toLowerCase() === req.params.name.toLowerCase();
   });
 
+  const simpleEvents = userEvents.map(event => {
+    return {
+      type: event.type,
+      repo: event.repo.name,
+      messages: event.payload.commits ? event.payload.commits.map(commit => commit.message) : null,
+    };
+  });
+
   res.status(200).json({
-    profile: profile,
-    repos: userRepos,
-    events: userEvents,
+    profile: simpleProfile,
+    repos: simpleRepos,
+    contributions: simpleEvents.length,
+    events: simpleEvents,
   });
 });
 
