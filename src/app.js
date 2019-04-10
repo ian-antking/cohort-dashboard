@@ -6,8 +6,12 @@ app.use(express.static('public'));
 app.use(express.json());
 
 
-app.get('/', (_, res) => {
+app.get('/users', (_, res) => {
   res.status(200).json({ Feb19: feb19 });
+});
+
+app.get('/users/:name', (req, res) => {
+  res.status(200).json({ name: req.params.name });
 });
 
 module.exports = app;
