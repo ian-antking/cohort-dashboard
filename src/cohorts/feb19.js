@@ -1,8 +1,8 @@
 const feb19 = [
   'Nesu11',
   'MuhammedAliGhori',
-  'dede79',
   'gza007',
+  'iseeteaj',
   'jackpearsall',
   'leesyski',
   'Mike-Huggins',
