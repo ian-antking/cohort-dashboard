@@ -3,11 +3,12 @@ const repos = require('./cohorts/feb19-repos.json');
 const events = require('./cohorts/feb19-events.json');
 const express = require('express');
 const feb19 = require('./cohorts/feb19');
-
+const cors = require('cors');
 
 const app = express();
 app.use(express.static('public'));
 app.use(express.json());
+app.use(cors());
 
 const flatProfiles = repos.feb19.reduce((a, b) => {
   return a.concat(b);
@@ -18,7 +19,10 @@ const flatEvents = events.feb19.reduce((a, b) => {
 });
 
 app.get('/users', (_, res) => {
-  res.status(200).json({ Feb19: feb19 });
+  res.status(200).json({
+    msg: 'This is CORS-enabled for all origins!',
+    Feb19: feb19,
+  });
 });
 
 app.get('/users/:name', (req, res) => {
@@ -68,6 +72,7 @@ app.get('/users/:name', (req, res) => {
   });
 
   res.status(200).json({
+    msg: 'This is CORS-enabled for all origins!',
     profile: simpleProfile,
     repos: simpleRepos,
     contributions: simpleEvents.length,
