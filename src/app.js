@@ -20,8 +20,7 @@ const flatEvents = events.feb19.reduce((a, b) => {
 
 app.get('/users', (_, res) => {
   res.status(200).json({
-    msg: 'This is CORS-enabled for all origins!',
-    Feb19: feb19,
+    feb19: feb19,
   });
 });
 
@@ -72,7 +71,6 @@ app.get('/users/:name', (req, res) => {
   });
 
   res.status(200).json({
-    msg: 'This is CORS-enabled for all origins!',
     profile: simpleProfile,
     repos: simpleRepos,
     contributions: simpleEvents.length,
