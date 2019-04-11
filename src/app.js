@@ -75,4 +75,8 @@ app.get('/users/:name', (req, res) => {
   });
 });
 
+app.get('*', (_, res) => {
+  res.redirect('/');
+});
+
 module.exports = app;
